@@ -13,7 +13,6 @@ import { useSelector, useDispatch } from 'react-redux';
 function App() {
 
 
-
   const modal = useSelector(state => state.modal)
   const dispatch = useDispatch()
   const [modalContent, setModalContent] = useState([])
@@ -29,8 +28,8 @@ function App() {
         <Navbar />
         <div className='cards-wrapper'>
           <Routes>
-            <Route path='/homes' element={<CardContainer setModalContent={setModalContent} cards='homes' />} />
-            <Route path='/lots' element={<CardContainer setModalContent={setModalContent} cards='lots' />} />
+            <Route path='/homes' element={<CardContainer key="/homes" setModalContent={setModalContent} cards='homes' />} />
+            <Route path='/lots' element={<CardContainer key="/lots" setModalContent={setModalContent} cards='lots' />} />
             {/* <Route path='/lots' element={<Dummy />} /> */}
           </Routes>
         </div>
