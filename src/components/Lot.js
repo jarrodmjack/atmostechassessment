@@ -3,7 +3,7 @@ import React from 'react'
 const Lot = ({ data }) => {
 
   const [street, city, state] = data.address.split(', ')
-  console.log(street)
+  // console.log(street)
 
   return (
     <div>

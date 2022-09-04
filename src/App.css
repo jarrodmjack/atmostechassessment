@@ -16,8 +16,9 @@
   height: 500px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
+  padding: 1rem;
 }
 
 
@@ -40,11 +41,12 @@
   margin-right: 50px;
 }
 
-
+/* show saved homes button */
 .saved-homes-button{
   height: 100px;
   display: flex;
   align-items: center;
+
 }
 
 .saved-homes-button > a {
@@ -54,6 +56,24 @@
   text-decoration: none;
   color: black;
   font-size: 22px;
+}
+
+/* heart button to save the homes */
+.save-homes-button{
+  border: 1px solid black;
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  align-self: flex-end;
+}
+
+.save-homes-button:hover{
+  cursor: pointer;
+  opacity: .7;
 }
 
 .modal-background{position:fixed; inset: 0;}
@@ -68,7 +88,7 @@
 .modal{
   background-color: white;
   height: 80%;
-  width: 60%;
+  width: 80%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -80,6 +100,9 @@
   gap: 10px;
 }
 
+.card p {
+  text-align: center;
+}
 
 .hidden{
   display: none;

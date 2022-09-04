@@ -1,10 +1,12 @@
 import React from 'react'
+import {Link} from 'react-router-dom'
 
 const Navbar = () => {
   return (
     <div className='navbar'>
-        <a href='/homes'>Home Plans</a>
-        <a href='/lots'>Lots</a>
+        <p><Link to={`/homes`}>Homes</Link></p>
+        <p><Link to={`/lots`}>Lots</Link></p>
+        {/* <a href='/lots'>Lots</a> */}
     </div>
   )
 }

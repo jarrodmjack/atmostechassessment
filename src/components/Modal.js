@@ -3,7 +3,7 @@ import { useLocation } from 'react-router-dom';
 import Card from './Card';
 import { API } from '../API'
 import { useSelector, useDispatch } from 'react-redux';
-import { toggleOpen } from '../modalSlice'
+import { toggleOpen } from '../slices/modalSlice'
 
 const Modal = ({ setShowModal, modalContent }) => {
 
@@ -22,6 +22,13 @@ const Modal = ({ setShowModal, modalContent }) => {
                     const validCombination = res.filter(item => modalContent.includes(item.lotId))
                     setContent(validCombination)
                 })
+        }else{
+            API.getHomePlans()
+            .then(res => {
+                console.log(res)
+                const validCombination = res.filter(item => modalContent.includes(item.homePlanId))
+                setContent(validCombination)
+            })
         }
     }, [modalContent])
 

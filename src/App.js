@@ -4,6 +4,7 @@ import CardContainer from './components/CardContainer';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Modal from './components/Modal';
+import Dummy from './components/Dummy';
 import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
@@ -30,6 +31,7 @@ function App() {
           <Routes>
             <Route path='/homes' element={<CardContainer setModalContent={setModalContent} cards='homes' />} />
             <Route path='/lots' element={<CardContainer setModalContent={setModalContent} cards='lots' />} />
+            {/* <Route path='/lots' element={<Dummy />} /> */}
           </Routes>
         </div>
         {modal.open && <Modal modalContent={modalContent} />}
