@@ -31,16 +31,14 @@ const CardContainer = ({ cards, setShowModal, setModalContent }) => {
     }
 
     return (
-        
+
         <div className='cards-container'>
             <div className='saved-homes-button'>
                 <a onClick={handleClick}>Show Saved Homes</a>
             </div>
             <div className='cards-wrapper'>
                 {info.map(item => {
-                    // return <Card setShowModal={setShowModal} setModalContent={setModalContent} key={item.acres ? item.lotId : item.homePlanId} data={item} /> // checking if acres exists. If it does, we are setting lot id as the key, otherwise we are setting the home id
-
-                    return <Card setModalContent={setModalContent} key={item.acres ? item.lotId : item.homePlanId} data={item} /> // checking if acres exists. If it does, we are setting lot id as the key, otherwise we are setting the home id
+                    return <Card setModalContent={setModalContent} type={location.pathname === "/homes" ? "home" : "lot"} key={item.acres ? item.lotId : item.homePlanId} data={item} />
                 })}
             </div>
         </div>

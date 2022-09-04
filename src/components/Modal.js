@@ -34,7 +34,7 @@ const Modal = ({ setShowModal, modalContent }) => {
 
 
     function closeModal(e) {
-            console.log(e.target)// if (e.target.classList.contains('modal-background')) setShowModal(false)
+            console.log(e.target)
 
         if (e.target.classList.contains('modal-background')) {
             dispatch(toggleOpen())
@@ -50,7 +50,7 @@ const Modal = ({ setShowModal, modalContent }) => {
                 <h2>Compatible BLANK plans</h2>
                 <div className='modal-card-container'>
                     {content.map(item => {
-                        return <Card key={item.acres ? item.lotId : item.homePlanId} data={item} />
+                        return <Card key={item.acres ? item.lotId : item.homePlanId} type={location.pathname === "/homes" ? "lot" : "home"} data={item} />
                     })}
                 </div>
             </div>
