@@ -39,6 +39,11 @@
   height: 100vh;
   border-right: 3px solid black ;
   margin-right: 50px;
+  display: flex;
+  flex-direction: column;
+  padding: 25px 0 0 25px;
+  align-items: flex-start;
+  gap: 20px;
 }
 
 /* show saved homes button */
@@ -49,7 +54,7 @@
 
 }
 
-.saved-homes-button > a {
+.saved-homes-button > button {
   padding: 1rem;
   border: 3px solid black;
   border-radius: 10px;
@@ -108,3 +113,21 @@
   display: none;
 }
 
+.link{
+  text-decoration: none;
+  color: red;
+}
+
+.navbar a{
+  font-size: 30px;
+  text-decoration: none;
+  color: black;
+}
+
+
+
+
+.navbar a.current-link{
+    color: orange;
+    text-decoration: none;
+}

@@ -1,12 +1,16 @@
 import React from 'react'
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
+import { useLocation } from 'react-router-dom'
 
 const Navbar = () => {
+
+  const location = useLocation()
+
   return (
     <div className='navbar'>
-        <p><Link to={`/homes`}>Homes</Link></p>
-        <p><Link to={`/lots`}>Lots</Link></p>
-        {/* <a href='/lots'>Lots</a> */}
+      <p><Link className={location.pathname === '/homes' && 'current-link'} to={`/homes`} >Home Plans</Link></p>
+      <p><Link className={location.pathname === '/lots' && 'current-link'} to={`/lots`}>Lots</Link></p>
+      {/* <a href='/lots'>Lots</a> */}
     </div>
   )
 }

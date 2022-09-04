@@ -34,7 +34,7 @@ const CardContainer = ({ cards, setShowModal, setModalContent }) => {
 
         <div className='cards-container'>
             <div className='saved-homes-button'>
-                <a onClick={handleClick}>Show Saved Homes</a>
+                <button onClick={handleClick}>Show Saved {location.pathname === "/homes" ? 'Homes' : 'Lots'}</button>
             </div>
             <div className='cards-wrapper'>
                 {info.map(item => {
