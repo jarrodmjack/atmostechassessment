@@ -11,31 +11,23 @@ const Modal = ({ setShowModal, modalContent }) => {
     const dispatch = useDispatch()
     const [content, setContent] = useState([])
     const location = useLocation()
+    const homes = useSelector(state => state.homes)
+    const lots = useSelector(state => state.lots)
     const modal = useSelector(state => state.modal)
 
 
     useEffect(() => {
         if (location.pathname == '/homes') {
-            API.getLots()
-                .then(res => {
-                    console.log(res)
-                    const validCombination = res.filter(item => modalContent.includes(item.lotId))
-                    setContent(validCombination)
-                })
+            let validCombination = lots.content.filter(item => modalContent.includes(item.lotId))
+            setContent(validCombination)
         }else{
-            API.getHomePlans()
-            .then(res => {
-                console.log(res)
-                const validCombination = res.filter(item => modalContent.includes(item.homePlanId))
-                setContent(validCombination)
-            })
+            let validCombination = homes.content.filter(item => modalContent.includes(item.homePlanId))
+            setContent(validCombination)
         }
     }, [modalContent])
 
 
     function closeModal(e) {
-            console.log(e.target)
-
         if (e.target.classList.contains('modal-background')) {
             dispatch(toggleOpen())
         }
@@ -45,9 +37,10 @@ const Modal = ({ setShowModal, modalContent }) => {
 
     return (
         <div onClick={closeModal} className='modal-background'>
-            <div className='modal'>
 
-                <h2>Compatible BLANK plans</h2>
+            <div className='modal'>
+                <h2>{modal.heading}</h2>
+                <h2>Compatible {location.pathname === '/homes' ? 'Lots' : 'Home Plans'}</h2>
                 <div className='modal-card-container'>
                     {content.map(item => {
                         return <Card key={item.acres ? item.lotId : item.homePlanId} type={location.pathname === "/homes" ? "lot" : "home"} data={item} />

@@ -4,6 +4,7 @@ import { createSlice } from '@reduxjs/toolkit'
 const initialState = {
     content: [],
     open: false,
+    heading: '',
 }
 
 
@@ -12,16 +13,16 @@ export const modalSlice = createSlice({
     initialState,
     reducers: {
         toggleOpen: (state) => {
-            console.log('toggleOpen running')
             state.open = !state.open
         },
-        addContent: (state, action) => {
-            state.content = [action.payload]
-        },
+        updateHeading: (state, action) => {
+            state.heading = action.payload
+        }
     },
 })
 
 
-export const { toggleOpen, addContent } = modalSlice.actions
+
+export const { toggleOpen, updateHeading} = modalSlice.actions
 
 export default modalSlice.reducer

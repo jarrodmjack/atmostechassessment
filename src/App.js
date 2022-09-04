@@ -4,7 +4,6 @@ import CardContainer from './components/CardContainer';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Modal from './components/Modal';
-import Dummy from './components/Dummy';
 import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
@@ -14,10 +13,8 @@ function App() {
 
 
   const modal = useSelector(state => state.modal)
-  const dispatch = useDispatch()
   const [modalContent, setModalContent] = useState([])
-  // const [showModal, setShowModal] = useState(false)
-  // const [] = useState('')
+
 
 
   console.log({ modalContent })

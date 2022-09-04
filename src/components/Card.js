@@ -5,17 +5,20 @@ import { useState } from 'react'
 import { API } from '../API'
 import { useSelector, useDispatch } from 'react-redux';
 
-import { toggleOpen } from '../slices/modalSlice'
+import { toggleOpen, updateHeading } from '../slices/modalSlice'
 import { saveHome } from '../slices/homesSlice'
 import { saveLot } from '../slices/lotsSlice'
 
 
 const Card = ({ data, setShowModal, setModalContent, type }) => {
+  // console.log(data)
   const dispatch = useDispatch();
   const ref = useRef(null);
   const modal = useSelector(state => state.modal)
   const homes = useSelector(state => state.homes)
   const lots = useSelector(state => state.lots)
+
+
 
   function handleClick(e) {
     if (type == 'home') {
@@ -29,8 +32,9 @@ const Card = ({ data, setShowModal, setModalContent, type }) => {
 
 
   function openModal(e) {
-
-    console.log("open modal", e.target.parentNode.classList)
+    console.log(data.name)
+    // console.log("open modal", e.target.parentNode.classList)
+    dispatch(updateHeading(data.name || `${data.address.split(', ')[0]}`))
     let propertyType;
     let node = e.target
     while (!node.getAttribute('cardid')) {

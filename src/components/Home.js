@@ -1,5 +1,6 @@
 import React from 'react'
 
+
 const Home = ({ data }) => {
   return (
     <div>
@@ -10,9 +11,11 @@ const Home = ({ data }) => {
         <span>{data.sqft} sqft</span>
       </div>
       <div>
-      {data.tags.map((tag, i) => {
-        return <span key={i}>{tag}</span>
+        <ul className='tag-list'>
+        {data.tags.map((tag, i) => {
+        return <li key={i}>{tag} </li>
       })}
+        </ul>
       </div>
     </div>
   )

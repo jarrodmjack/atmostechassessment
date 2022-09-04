@@ -8,7 +8,7 @@ const Lot = ({ data }) => {
   return (
     <div>
       <h2>{street}</h2>
-      <span>{city}, {state}</span>
+      <p>{city}, {state}</p>
     </div>
   )
 }
