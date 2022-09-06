@@ -1,20 +1,18 @@
 import React from 'react'
-import { API } from '../API'
 import { useState, useEffect } from 'react';
 import Card from './Card';
 import { useSelector } from 'react-redux';
 import { useLocation } from "react-router-dom"
 
-const CardContainer = ({ cards, setShowModal, setModalContent }) => {
+const CardContainer = ({ cards, setModalContent }) => {
 
     const homes = useSelector(state => state.homes)
     const lots = useSelector(state => state.lots)
     const location = useLocation()
     const [info, setInfo] = useState([]);
     const [showSaved, setShowSaved] = useState(false);
-    console.log("saved?", showSaved)
-    useEffect(() => {
 
+    useEffect(() => {
         if (cards === 'homes') {
             setInfo(homes.content)
         } else if (cards === 'lots') {
@@ -34,7 +32,7 @@ const CardContainer = ({ cards, setShowModal, setModalContent }) => {
 
         <div className='cards-container'>
             <div className='saved-homes-button'>
-                <button onClick={handleClick}>Show Saved {location.pathname === "/homes" ? 'Homes' : 'Lots'}</button>
+                <button className='show-saved-button' onClick={handleClick}>Show Saved {location.pathname === "/homes" ? 'Homes' : 'Lots'}</button>
             </div>
             <div className='cards-wrapper'>
                 {info.map(item => {

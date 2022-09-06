@@ -10,7 +10,6 @@ const Navbar = () => {
     <div className='navbar'>
       <p><Link className={location.pathname === '/homes' && 'current-link'} to={`/homes`} >Home Plans</Link></p>
       <p><Link className={location.pathname === '/lots' && 'current-link'} to={`/lots`}>Lots</Link></p>
-      {/* <a href='/lots'>Lots</a> */}
     </div>
   )
 }

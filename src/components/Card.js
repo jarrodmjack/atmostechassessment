@@ -1,7 +1,6 @@
-import React, { useEffect, useRef } from 'react'
+import React, { useRef } from 'react'
 import Home from './Home'
 import Lot from './Lot'
-import { useState } from 'react'
 import { API } from '../API'
 import { useSelector, useDispatch } from 'react-redux';
 
@@ -11,19 +10,17 @@ import { saveLot } from '../slices/lotsSlice'
 
 
 const Card = ({ data, setShowModal, setModalContent, type }) => {
-  // console.log(data)
   const dispatch = useDispatch();
   const ref = useRef(null);
-  const modal = useSelector(state => state.modal)
   const homes = useSelector(state => state.homes)
   const lots = useSelector(state => state.lots)
 
 
 
   function handleClick(e) {
-    if (type == 'home') {
+    if (type === 'home') {
       dispatch(saveHome(data.homePlanId))
-    } else if (type == 'lot') {
+    } else if (type === 'lot') {
       dispatch(saveLot(data.lotId))
     }
     e.stopPropagation()
@@ -32,8 +29,6 @@ const Card = ({ data, setShowModal, setModalContent, type }) => {
 
 
   function openModal(e) {
-    console.log(data.name)
-    // console.log("open modal", e.target.parentNode.classList)
     dispatch(updateHeading(data.name || `${data.address.split(', ')[0]}`))
     let propertyType;
     let node = e.target
@@ -78,9 +73,10 @@ const Card = ({ data, setShowModal, setModalContent, type }) => {
         className='save-homes-button'
         ref={ref}
         onClick={handleClick}>
-        {(type === 'home' ? homes : lots).content[(data.homePlanId || data.lotId) - 1].isSaved ? `💙` : `❤`}
+        {(type === 'home' ? homes : lots).content[(data.homePlanId || data.lotId) - 1].isSaved ? `🧡` : `❤`}
       </span>
       <img
+        alt='display card'
         className='card-image'
         src={data.image} />
       {data.acres ? <Lot data={data} /> : <Home data={data} />}

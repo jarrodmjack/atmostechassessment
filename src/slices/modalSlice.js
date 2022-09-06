@@ -1,12 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit'
 
-
 const initialState = {
     content: [],
     open: false,
     heading: '',
 }
-
 
 export const modalSlice = createSlice({
     name: 'modal',
@@ -16,13 +14,15 @@ export const modalSlice = createSlice({
             state.open = !state.open
         },
         updateHeading: (state, action) => {
-            state.heading = action.payload
+            if(!state.open){
+                state.heading = action.payload
+            }else{
+                return
+            }
+            
         }
     },
 })
 
-
-
 export const { toggleOpen, updateHeading} = modalSlice.actions
-
 export default modalSlice.reducer

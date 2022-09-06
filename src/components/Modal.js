@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import { useLocation } from 'react-router-dom';
 import Card from './Card';
-import { API } from '../API'
 import { useSelector, useDispatch } from 'react-redux';
 import { toggleOpen } from '../slices/modalSlice'
 
+
+
 const Modal = ({ setShowModal, modalContent }) => {
 
-    console.log({ modaljs: modalContent })
     const dispatch = useDispatch()
     const [content, setContent] = useState([])
     const location = useLocation()
@@ -20,10 +20,14 @@ const Modal = ({ setShowModal, modalContent }) => {
         if (location.pathname == '/homes') {
             let validCombination = lots.content.filter(item => modalContent.includes(item.lotId))
             setContent(validCombination)
+ 
         }else{
             let validCombination = homes.content.filter(item => modalContent.includes(item.homePlanId))
             setContent(validCombination)
+
         }
+
+    
     }, [modalContent])
 
 

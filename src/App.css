@@ -4,10 +4,6 @@
   position: relative;
 }
 
-/* div p{
-  text-align: center;
-} */
-
 .cards-container{
   display: flex;
   flex-direction: column;
@@ -27,12 +23,13 @@
 
 
 .card-image{
-  width: 280px;
+  width: 330px;
   height: 175px;
   align-self: center;
 }
 
 .cards-wrapper{
+  margin-top: 50px;
   display: flex;
   flex-wrap: wrap;
   gap: 100px;
@@ -41,7 +38,7 @@
 
 .navbar{
   width: 300px;
-  height: 100vh;
+  height: 1400px;
   border-right: 3px solid black ;
   margin-right: 50px;
   display: flex;
@@ -50,6 +47,22 @@
   align-items: flex-start;
   gap: 20px;
 }
+
+.navbar a{
+  font-size: 30px;
+  text-decoration: none;
+  color: black;
+}
+
+.navbar a.current-link{
+    color: #FF7161;
+    text-decoration: none;
+}
+
+.navbar a:hover{
+  color: #FF7161;
+}
+
 
 /* show saved homes button */
 .saved-homes-button{
@@ -86,10 +99,19 @@
   opacity: .7;
 }
 
+.show-saved-button{
+  background-color: white;
+}
+
+.show-saved-button:hover{
+  background-color: orange;
+  cursor: pointer;
+}
+
+
 .modal-background{position:fixed; inset: 0;}
 .modal-background{
 	background: rgba(0, 0, 0, 0.3);
-	/* outline: 5000px rgba(0, 0, 0, 0.3) solid; */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -110,31 +132,8 @@
   gap: 10px;
 }
 
-/* .card p {
-  text-align: center;
-} */
-
 .hidden{
   display: none;
-}
-
-.link{
-  text-decoration: none;
-  color: red;
-}
-
-.navbar a{
-  font-size: 30px;
-  text-decoration: none;
-  color: black;
-}
-
-
-
-
-.navbar a.current-link{
-    color: orange;
-    text-decoration: none;
 }
 
 

@@ -1,23 +1,17 @@
-import React, { useEffect } from 'react';
 import './App.css';
 import CardContainer from './components/CardContainer';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Modal from './components/Modal';
 import { useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 
 
 
 function App() {
 
-
   const modal = useSelector(state => state.modal)
   const [modalContent, setModalContent] = useState([])
-
-
-
-  console.log({ modalContent })
 
   return (
     <Router>
@@ -27,11 +21,9 @@ function App() {
           <Routes>
             <Route path='/homes' element={<CardContainer key="/homes" setModalContent={setModalContent} cards='homes' />} />
             <Route path='/lots' element={<CardContainer key="/lots" setModalContent={setModalContent} cards='lots' />} />
-            {/* <Route path='/lots' element={<Dummy />} /> */}
           </Routes>
         </div>
         {modal.open && <Modal modalContent={modalContent} />}
-        {/* {showModal && <Modal modalContent={modalContent} setShowModal={setShowModal} />} */}
       </div>
     </Router>
   );

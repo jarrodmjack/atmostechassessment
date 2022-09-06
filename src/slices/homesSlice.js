@@ -56,10 +56,6 @@ export const homesSlice = createSlice({
     initialState,
     reducers: {
         saveHome: (state, action) => {
-            // const updatedHome = { ...state.content[action.payload - 1] }
-            // updatedHome.isSaved = true
-            // // console.log(updatedHome)
-            // state.content = [...state.content, updatedHome]
             state.content[action.payload - 1].isSaved = !state.content[action.payload - 1].isSaved
         },
     },
