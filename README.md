@@ -35,7 +35,7 @@ JavaScript, React, Redux
 
 # Packages/Dependencies used 
 
-react, react-router-dom, @reduxjs/toolkit
+react, react-router-dom, react-redux, @reduxjs/toolkit
 
 ---
 
